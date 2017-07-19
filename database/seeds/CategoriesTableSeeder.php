@@ -23,9 +23,13 @@ class CategoriesTableSeeder extends Seeder
         // generate data dummy
         DB::table('categories')->insert([
         	[
-        		'title' 	=> "Web Design",
-        		'slug' 		=> "web-design",
+        		'title' 	=> "Uncategorized",
+        		'slug' 		=> "uncategorized",
         	],
+            [
+                'title'     => "Web Design",
+                'slug'      => "web-design",
+            ],
         	[
         		'title' 	=> "Web Programming",
         		'slug' 		=> "web-pogramming",

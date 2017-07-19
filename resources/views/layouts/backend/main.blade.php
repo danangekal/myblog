@@ -17,6 +17,15 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset('backend/css/skins/_all-skins.min.css') }}">
+  <!-- Simplemde -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/simplemde/simplemde.min.css') }}">
+  <!-- Bootstrap datetimepicker -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}">
+  <!-- jasny-bootstrap -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css') }}">
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
+
    
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,6 +59,14 @@
 <script src="{{ asset('backend/js/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+<!-- Simplemde -->
+<script src="{{ asset('backend/plugins/simplemde/simplemde.min.js') }}"></script>
+<!-- Moment.js -->
+<script src="{{ asset('backend/plugins/bootstrap-datetimepicker/js/moment.js') }}"></script>
+<!-- Bootstrap Datetimepicker -->
+<script src="{{ asset('backend/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- jasny-bootstrap -->
+<script src="{{ asset('backend/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/js/app.min.js') }}"></script>
 

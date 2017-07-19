@@ -2,12 +2,16 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use GrahamCampbell\Markdown\Facades\Markdown;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
 
 class Post extends Model
 {
+	use softDeletes;
+
+	
 	protected $fillable = ['title', 'slug', 'excerpt', 'body', 'published_at', 'category_id', 'image'];
 	protected $dates = ['published_at'];
 
@@ -76,6 +80,17 @@ class Post extends Model
 		return $query->where("published_at", "<=", Carbon::now());
 	}
 
+	public function scopeScheduled($query)
+	{
+		return $query->where("published_at", ">", Carbon::now());
+	}
+
+	public function scopeDraft($query)
+	{
+		return $query->whereNull("published_at");
+	}
+
+
 	public function scopePopular($query)
 	{
 		return $query->orderBy('view_count', 'desc');
@@ -93,7 +108,7 @@ class Post extends Model
 		if ( ! $this->published_at) {
 			return  '<span class="label label-warning">Draft</span>';
 		} elseif ($this->published_at && $this->published_at->isFuture()) {
-			return '<span class="label label-info">Schedule</span>';
+			return '<span class="label label-info">Scheduled</span>';
 		} else {
 			return '<span class="label label-success">Published</span>'; 
 		}

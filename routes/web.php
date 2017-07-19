@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +38,28 @@ Route::get('/home', 'Backend\HomeController@index')->name('home');
 Route::resource('/backend/blog', 'Backend\BlogController', [     
     'as' => 'backend'
 ]);
+
+Route::put('/backend/blog/restore/{blog}', [
+	'uses' 	=> 'Backend\BlogController@restore',
+	'as' 	=> 'backend.blog.restore'
+]);
+
+Route::delete('/backend/blog/force-destroy/{blog}', [
+	'uses' 	=> 'Backend\BlogController@forceDestroy',
+	'as' 	=> 'backend.blog.force-destroy'
+]);
+
+Route::resource('/backend/categories', 'Backend\CategoriesController', [     
+    'as' => 'backend'
+]);
+
+Route::resource('/backend/users', 'Backend\UsersController', [     
+    'as' => 'backend'
+]);
+
+Route::get('/backend/users/confirm/{users}', [
+	'uses' 	=> 'Backend\UsersController@confirm',
+	'as' 	=> 'backend.users.confirm'
+]);
+
+
