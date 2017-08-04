@@ -33,12 +33,19 @@ class UsersTableSeeder extends Seeder
                 'bio'       => $faker->text(rand(250, 300)),
         	],
         	[
-        		'name' 		=> "Dea",
-        		'email' 	=> "dea@gmail.com",
+        		'name' 		=> "Administrator",
+        		'email' 	=> "admin@gmail.com",
         		'password'	=> bcrypt('123456'),
-                'slug'      => "dea",
+                'slug'      => "administrator",
                 'bio'       => $faker->text(rand(250, 300)),
-        	]
+        	],
+            [
+                'name'      => "User",
+                'email'     => "user@gmail.com",
+                'password'  => bcrypt('123456'),
+                'slug'      => "user",
+                'bio'       => $faker->text(rand(250, 300)),
+            ]
         ]);
 
         // set foreign key 1 if use mysql

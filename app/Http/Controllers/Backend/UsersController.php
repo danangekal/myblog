@@ -101,20 +101,22 @@ class UsersController extends BackendController
 
         if ($deleteOption == 'delete') {
             // delete user posts
-            $post = $user->posts();
-            $post->withTrashed()->forceDelete();
-            
-            // $image = $post->image;
-            // dd($image);
-            // if (! empty($image)) {
-            //     $imagePath     = $this->uploadPath . '/' .$image;
-            //     $ext           = substr(strrchr($image, '.'), 1);
-            //     $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
-            //     $thumbnailPath = $this->uploadPath . '/' .$thumbnail;
+            $posts = $user->posts()->withTrashed()->forceDelete();
+            // dd($posts);
+            // foreach ($posts as $post) {
+            //     $image = $post->image;
+            //     if (! empty($image)) {
+            //         $imagePath     = $this->uploadPath . '/' .$image;
+            //         $ext           = substr(strrchr($image, '.'), 1);
+            //         $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
+            //         $thumbnailPath = $this->uploadPath . '/' .$thumbnail;
 
-            //     if (file_exists($imagePath)) unlink($imagePath);
-            //     if (file_exists($thumbnailPath)) unlink($thumbnailPath);
+            //         if (file_exists($imagePath)) unlink($imagePath);
+            //         if (file_exists($thumbnailPath)) unlink($thumbnailPath);
+            //     }
             // }
+            
+            //$posts->forceDelete();
         } elseif ($deleteOption == 'attribute') {
             $user->posts()->update(['author_id' => $selectedUser]);
         }
