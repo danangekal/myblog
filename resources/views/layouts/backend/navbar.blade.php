@@ -30,7 +30,7 @@
                 <img src="{{ $currentUser->gravatar() }}" class="img-circle" alt="{{ Auth::user()->name }}">
 
                 <p>
-                  {{ $currentUser->name }} - Web Developer
+                  {{ $currentUser->name }} - {{ $currentUser->roles->first()->display_name }}
                 </p>
               </li>
               <!-- Menu Footer-->
