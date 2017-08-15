@@ -15,7 +15,7 @@
         <li>
           <a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
         </li>
-        <li><a href="{{ route('backend.categories.index') }}">Blog</a></li>
+        <li><a href="{{ route('backend.categories.index') }}">Categories</a></li>
         <li class="active">Edit</li>
       </ol>
     </section>

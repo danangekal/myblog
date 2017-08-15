@@ -12,6 +12,15 @@
                 @endif
             </div>
 
+            <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
+                {!! Form::label('slug') !!}
+                {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+
+                @if ($errors->has('slug'))
+                  <span class="help-block">{{ $errors->first('slug') }}</span>
+                @endif
+            </div>
+
             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 {!! Form::label('email') !!}
                 {!! Form::text('email', null, ['class' => 'form-control']) !!}
@@ -36,6 +45,29 @@
 
                 @if ($errors->has('password_confirmation'))
                   <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
+                @endif
+            </div>
+
+            <div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
+                {!! Form::label('role') !!}
+                @if ($user->exists && ($user->id == config('cms.default_user_id') || isset($hideRoleDropdown)))
+                  {!! Form::hidden('role', $user->roles->first()->id) !!}
+                  <p class="form-control-static">{{ $user->roles->first()->display_name }}</p>
+                @else
+                  {!! Form::select('role', App\Role::pluck('display_name', 'id'), $user->exists ? $user->roles->first()->id : null, ['class' => 'form-control', 'placeholder' => 'Choose a Role']) !!}
+                @endif
+
+                @if ($errors->has('role'))
+                  <span class="help-block">{{ $errors->first('role') }}</span>
+                @endif
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('bio') !!}
+                {!! Form::textarea('bio', null, ['rows' => 5, 'class' => 'form-control']) !!}
+
+                @if ($errors->has('bio'))
+                  <span class="help-block">{{ $errors->first('bio') }}</span>
                 @endif
             </div>
           </div>
