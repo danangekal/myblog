@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
+use App\Category;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -27,25 +29,21 @@ class CategoriesTableSeeder extends Seeder
         		'slug' 		=> "uncategorized",
         	],
             [
-                'title'     => "Web Design",
-                'slug'      => "web-design",
+                'title'     => "Tips and Tricks",
+                'slug'      => "tips-and-tricks",
             ],
         	[
-        		'title' 	=> "Web Programming",
-        		'slug' 		=> "web-pogramming",
+        		'title' 	=> "Build Apps",
+        		'slug' 		=> "build-apps",
         	],
         	        	[
-        		'title' 	=> "Internet",
-        		'slug' 		=> "internet",
+        		'title' 	=> "News",
+        		'slug' 		=> "news",
         	],
         	        	[
-        		'title' 	=> "Social Marketting",
-        		'slug' 		=> "social-marketing",
+        		'title' 	=> "Freebies",
+        		'slug' 		=> "freebies",
         	],
-        	        	[
-        		'title' 	=> "Photography",
-        		'slug' 		=> "photography",
-        	]
         ]);
 
         // set foreign key 1 if use mysql

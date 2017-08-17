@@ -19,14 +19,14 @@ class PostsTableSeeder extends Seeder
         // reset table if use postgresql
         // DB::statement('TRUNCATE posts');
         
-        // generate 10 data dummy
+        // generate 36 data dummy
         $posts 	= [];
         $faker 	= Factory::create();
-        $date   = Carbon::create(2017, 5, 5, 9);
+        $date   = Carbon::now()->modify('-1 year');
         $image 	= "Post_Image_" . rand(1, 5). ".jpg";
 
-        for ($i=1; $i <=10 ; $i++) { 
-	        $date->addDays(1); 
+        for ($i=1; $i <=36 ; $i++) { 
+	        $date->addDays(10); 
             $publishedDate = clone($date);
             $createdDate   = clone($date); 
 
@@ -39,7 +39,7 @@ class PostsTableSeeder extends Seeder
         		'image' 	    => rand(0,1) == 1 ? $image : NULL,
         		'created_at'    => $createdDate,
         		'updated_at'    => $createdDate,
-                'published_at'  =>  $i < 5 ? $publishedDate : ( rand(0, 1) == 0 ? NULL : $publishedDate->addDays(4) ),
+                'published_at'  =>  $i < 30 ? $publishedDate : ( rand(0, 1) == 0 ? NULL : $publishedDate->addDays(4) ),
                 'category_id'   => rand(1, 5),
                 'view_count'    => rand(1, 10) * 10,
         	]; 
